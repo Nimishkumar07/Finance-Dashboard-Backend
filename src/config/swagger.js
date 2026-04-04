@@ -16,6 +16,10 @@ const options = {
     },
     servers: [
       {
+        url: 'https://finance-dashboard-backend-mgv1.onrender.com',
+        description: 'Production Server',
+      },
+      {
         url: `http://localhost:${config.port}`,
         description: 'Development Server',
       },
