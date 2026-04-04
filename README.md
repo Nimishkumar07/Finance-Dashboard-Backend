@@ -13,6 +13,21 @@ A production-style backend system for a Finance Dashboard application with role-
 
 ---
 
+## 📑 Table of Contents
+- [Architecture](#-architecture)
+- [Role-Based Access Control (RBAC)](#-role-based-access-control-rbac)
+- [Quick Start](#-quick-start)
+- [API Documentation](#-api-documentation)
+- [API Usage Examples](#-api-usage-examples)
+- [Testing](#-testing)
+- [Security Features](#-security-features)
+- [Deployment (Render)](#-deployment-render)
+- [Data Model](#-data-model)
+- [Assumptions & Tradeoffs](#-assumptions--tradeoffs)
+- [Available Scripts](#-available-scripts)
+
+---
+
 ## 🏗 Architecture
 
 ```
@@ -300,7 +315,7 @@ Use the included `render.yaml` blueprint for automatic deployment.
 
 4. **MongoDB over SQL** — Chosen for schema flexibility, powerful aggregation framework, and natural fit for JSON-based APIs. Trade-off: no foreign key constraints (handled at application level).
 
-5. **JWT over sessions** — Stateless authentication scales horizontally without session store. Trade-off: no server-side session revocation (mitigated by short expiry).
+5. **JWT over sessions** — The authentication system uses JWT for simplicity. In a production environment, this can be extended to an access + refresh token mechanism for improved security and token lifecycle management.
 
 6. **Categories are predefined** — Rather than free-text, categories are constrained to a predefined list for consistent aggregation grouping. Easily extensible in `constants/categories.js`.
 
