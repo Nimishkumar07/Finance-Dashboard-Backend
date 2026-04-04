@@ -4,6 +4,13 @@ A production-style backend system for a Finance Dashboard application with role-
 
 > **Built with:** Node.js · Express.js · MongoDB/Mongoose · JWT · Swagger
 
+## 🌐 Live Demo & API Docs
+- **Base API Endpoint:** `https://finance-dashboard-backend-mgv1.onrender.com`
+- **System Health Check:** `https://finance-dashboard-backend-mgv1.onrender.com/health`
+- **Interactive API Docs:** `https://finance-dashboard-backend-mgv1.onrender.com/api-docs`
+
+*(Note: The Render instance spins down after inactivity. The first request may take ~50 seconds to wake up the server).*
+
 ---
 
 ## 🏗 Architecture

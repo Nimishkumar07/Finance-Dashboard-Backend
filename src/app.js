@@ -41,6 +41,11 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
   customSiteTitle: 'Finance Dashboard API Docs',
 }));
 
+// ----- Root URL Redirect -----
+app.get('/', (req, res) => {
+  res.redirect('/api-docs');
+});
+
 // ----- Health Check -----
 app.get('/health', (req, res) => {
   res.status(200).json({

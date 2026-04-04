@@ -8,7 +8,7 @@ const options = {
       title: 'Finance Dashboard API',
       version: '1.0.0',
       description:
-        'A production-style Finance Dashboard Backend with role-based access control, ' +
+        'A production-ready Finance Dashboard Backend with role-based access control, ' +
         'MongoDB aggregation pipelines, and financial data processing.',
       contact: {
         name: 'API Support',
