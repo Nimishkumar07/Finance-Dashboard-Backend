@@ -1,6 +1,6 @@
 # Finance Dashboard API
 
-A production-style backend system for a Finance Dashboard application with role-based access control, MongoDB aggregation pipelines, and financial data processing.
+A production-inspired backend system for a Finance Dashboard application with role-based access control, MongoDB aggregation pipelines, and financial data processing.
 
 > **Built with:** Node.js · Express.js · MongoDB/Mongoose · JWT · Swagger
 
@@ -14,6 +14,9 @@ A production-style backend system for a Finance Dashboard application with role-
 ---
 
 ## 📑 Table of Contents
+- [Overview](#-overview)
+- [Why This Project Stands Out](#-why-this-project-stands-out)
+- [Request Flow](#-request-flow)
 - [Architecture](#-architecture)
 - [Role-Based Access Control (RBAC)](#-role-based-access-control-rbac)
 - [Quick Start](#-quick-start)
@@ -25,6 +28,92 @@ A production-style backend system for a Finance Dashboard application with role-
 - [Data Model](#-data-model)
 - [Assumptions & Tradeoffs](#-assumptions--tradeoffs)
 - [Available Scripts](#-available-scripts)
+
+---
+
+## 🚀 Overview
+
+A production-inspired backend system for financial data processing with:
+
+- 🔐 Permission-based RBAC (not hardcoded roles)
+- 📊 MongoDB aggregation pipelines for analytics
+- ⚙️ Layered architecture (routes → services → models)
+- 📈 Dashboard APIs (summary, trends, breakdown)
+- 🧪 Integration tests + Swagger API docs
+
+Designed to simulate real-world fintech backend systems with focus on scalability, security, and maintainability.
+
+---
+
+## ⭐ What Makes This Project Stand Out
+
+Most beginner/intermediate assignments stop at basic CRUD and simple role checks (e.g., `if (role === 'admin')`).  
+This project focuses on **real-world backend design patterns**:
+
+### 1. 🔐 Permission-Based RBAC (Not Hardcoded Roles)
+Routes are protected using granular permissions like `authorize(PERMISSIONS.CREATE_RECORD)` instead of direct role checks.  
+Roles simply map to permission sets.
+
+➡️ Adding or modifying roles requires **no changes to route or controller logic**, making the system flexible and scalable.
+
+---
+
+### 2. 📊 Database-Level Aggregation (Not In-Memory Processing)
+All dashboard analytics (totals, trends, breakdowns) are implemented using **MongoDB aggregation pipelines**.
+
+➡️ This avoids loading large datasets into application memory and ensures efficient, single-round-trip computations.
+
+---
+
+### 3. 🧾 Data Integrity with Audit Trails
+Financial records are **never hard deleted**.
+
+- Uses `isDeleted` flag
+- Tracks `deletedBy` and `deletedAt`
+- Automatically excluded via query middleware
+
+➡️ Ensures auditability while preventing accidental data exposure.
+
+---
+
+### 4. 🛡️ Defense-in-Depth Security
+Beyond JWT authentication, the system includes:
+
+- `helmet` → secure HTTP headers  
+- `hpp` → parameter pollution protection  
+- `express-mongo-sanitize` → NoSQL injection prevention  
+- Rate limiting → stricter controls on auth routes  
+
+➡️ Demonstrates layered backend security practices.
+
+---
+
+### 5. ⚙️ Consistent API Contracts & Error Handling
+- All responses follow a standardized format: `{ success, message, data }`
+- Global error handler normalizes Mongoose and validation errors
+
+➡️ Prevents leaking internal details while maintaining clean API responses.
+---
+
+## 🔄 Request Flow
+
+Below is the exact path a request takes when hitting a protected endpoint (like creating a record):
+
+```mermaid
+graph TD
+    A[Client Request] -->|HTTP POST| B[express.json & Security Headers]
+    B -->|Helmet, HPP, CORS| C[API Rate Limiter]
+    C -->|Within limits?| D[authenticate.js Middleware]
+    D -->|Valid JWT & User Active?| E[authorize.js Middleware]
+    E -->|Has required permission?| F[validate.js Middleware]
+    F -->|Joi schema valid?| G[Controller Layer]
+    G -->|Extracts req.body| H[Service Layer]
+    H -->|Business Logic & Audit Injection| I[Mongoose Model]
+    I -->|Pre-save hooks & validation| J[(MongoDB)]
+    J -->|Returns saved doc| H
+    H -->|Passed to Controller| G
+    G -->|Formats via ApiResponse| K[JSON Response to Client]
+```
 
 ---
 
