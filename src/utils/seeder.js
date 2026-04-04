@@ -11,7 +11,7 @@
  */
 
 const mongoose = require('mongoose');
-const config = require('../config/env');
+const { connectDB } = require('../config/db');
 const User = require('../models/User');
 const FinancialRecord = require('../models/FinancialRecord');
 
@@ -131,8 +131,7 @@ const generateRecords = (adminId) => {
 const seed = async () => {
   try {
     console.log('[Seeder] Connecting to MongoDB...');
-    await mongoose.connect(config.mongo.uri);
-    console.log('[Seeder] Connected.');
+    await connectDB();
 
     // Clear existing data
     console.log('[Seeder] Clearing existing data...');
