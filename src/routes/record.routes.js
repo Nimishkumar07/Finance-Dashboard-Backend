@@ -98,11 +98,13 @@ router.post(
  *         schema:
  *           type: string
  *           format: date
+ *           example: "2026-03-15"
  *       - in: query
  *         name: endDate
  *         schema:
  *           type: string
  *           format: date
+ *           example: "2026-04-05"
  *       - in: query
  *         name: search
  *         schema:

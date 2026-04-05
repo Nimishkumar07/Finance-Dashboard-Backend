@@ -27,12 +27,14 @@ router.use(authenticate);
  *         schema:
  *           type: string
  *           format: date
+ *           example: "2026-03-15"
  *         description: Filter start date (optional)
  *       - in: query
  *         name: endDate
  *         schema:
  *           type: string
  *           format: date
+ *           example: "2026-04-05"
  *         description: Filter end date (optional)
  *     responses:
  *       200:
@@ -56,11 +58,13 @@ router.get(
  *         schema:
  *           type: string
  *           format: date
+ *           example: "2026-03-15"
  *       - in: query
  *         name: endDate
  *         schema:
  *           type: string
  *           format: date
+ *           example: "2026-04-05"
  *     responses:
  *       200:
  *         description: Category breakdown with totals and averages
@@ -129,11 +133,13 @@ router.get(
  *         schema:
  *           type: string
  *           format: date
+ *           example: "2026-03-15"
  *       - in: query
  *         name: endDate
  *         schema:
  *           type: string
  *           format: date
+ *           example: "2026-04-05"
  *     responses:
  *       200:
  *         description: Daily breakdown of income vs expense
