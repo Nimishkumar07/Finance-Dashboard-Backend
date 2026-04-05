@@ -1,9 +1,5 @@
 # Finance Dashboard API
 
-[![📚 Project Wiki](https://img.shields.io/badge/Project%20Wiki-View%20Docs-blue)](https://deepwiki.com/Nimishkumar07/Finance-Dashboard-Backend)
-[![🚀 Live API](https://img.shields.io/badge/Live%20API-Visit-green)](https://finance-dashboard-backend-mgv1.onrender.com)
-[![📖 API Docs](https://img.shields.io/badge/Swagger-Explore-orange)](https://finance-dashboard-backend-mgv1.onrender.com/api-docs)
-
 A production-inspired backend system for a Finance Dashboard application with role-based access control, MongoDB aggregation pipelines, and financial data processing.
 
 > **Built with:** Node.js · Express.js · MongoDB/Mongoose · JWT · Swagger

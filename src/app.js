@@ -43,14 +43,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
 
 // ----- Root URL Redirect -----
 app.get('/', (req, res) => {
-  res.json({
-    success: true,
-    message: 'Finance Dashboard API is running 🚀',
-    endpoints: {
-      docs: '/api-docs',
-      health: '/health'
-    }
-  });
+  res.redirect('/api-docs');
 });
 
 // ----- Health Check -----
