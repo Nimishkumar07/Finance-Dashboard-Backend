@@ -5,9 +5,9 @@ A production-inspired backend system for a Finance Dashboard application with ro
 > **Built with:** Node.js · Express.js · MongoDB/Mongoose · JWT · Swagger
 
 ## 🌐 Live Demo & API Docs
-- **Base API Endpoint:** `https://finance-dashboard-backend-mgv1.onrender.com`
-- **System Health Check:** `https://finance-dashboard-backend-mgv1.onrender.com/health`
-- **Interactive API Docs:** `https://finance-dashboard-backend-mgv1.onrender.com/api-docs`
+- **Base API Endpoint:** https://finance-dashboard-backend-mgv1.onrender.com
+- **System Health Check:** https://finance-dashboard-backend-mgv1.onrender.com/health
+- **Interactive API Docs:** https://finance-dashboard-backend-mgv1.onrender.com/api-docs
 
 *(Note: The Render instance spins down after inactivity. The first request may take ~50 seconds to wake up the server).*
 
@@ -96,6 +96,8 @@ Beyond JWT authentication, the system includes:
 ---
 
 ## 🔄 Request Flow
+
+`Request` → `Middleware (Auth + RBAC + Validation)` → `Controller` → `Service` → `Database` → `Response`
 
 Below is the exact path a request takes when hitting a protected endpoint (like creating a record):
 
@@ -254,28 +256,28 @@ Interactive Swagger docs available at: **`http://localhost:5000/api-docs`**
 
 ### Login
 ```bash
-curl -X POST http://localhost:5000/api/auth/login \
+curl -X POST https://finance-dashboard-backend-mgv1.onrender.com/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email": "admin@finance.com", "password": "admin123"}'
 ```
 
 ### Create a Record (Admin)
 ```bash
-curl -X POST http://localhost:5000/api/records \
+curl -X POST https://finance-dashboard-backend-mgv1.onrender.com/api/records \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
   -d '{
     "amount": 50000,
     "type": "income",
     "category": "salary",
-    "date": "2024-03-15",
+    "date": "2026-03-15",
     "description": "Monthly salary"
   }'
 ```
 
 ### Get Dashboard Summary
 ```bash
-curl http://localhost:5000/api/dashboard/summary \
+curl https://finance-dashboard-backend-mgv1.onrender.com/api/dashboard/summary \
   -H "Authorization: Bearer <token>"
 ```
 
@@ -424,6 +426,6 @@ Use the included `render.yaml` blueprint for automatic deployment.
 
 ---
 
-## License
+## 🌐 Connect with me
 
-ISC
+[![LinkedIn](https://img.shields.io/badge/-Nimish%20Kumar-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nimishkumar07/)](https://www.linkedin.com/in/nimishkumar07/)  
