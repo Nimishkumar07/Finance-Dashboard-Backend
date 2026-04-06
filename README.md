@@ -19,6 +19,7 @@ A production-inspired backend system for a Finance Dashboard application with ro
 
 ## 📑 Table of Contents
 - [Overview](#-overview)
+- [Tech Stack](#-tech-stack)
 - [Why This Project Stands Out](#-why-this-project-stands-out)
 - [Request Flow](#-request-flow)
 - [Architecture](#-architecture)
@@ -48,6 +49,17 @@ A production-inspired backend system for financial data processing with:
 Designed to simulate real-world fintech backend systems with focus on scalability, security, and maintainability.
 
 ---
+
+## 🛠 Tech Stack
+
+- **Runtime:** Node.js (v18+)  
+- **Framework:** Express.js  
+- **Database:** MongoDB with Mongoose ODM  
+- **Security:** JWT, Helmet, HPP, express-mongo-sanitize  
+- **Validation:** Joi  
+- **Documentation:** Swagger UI / OpenAPI 3.0  
+- **Testing:** Jest & Supertest  
+- **Deployment:** Render, MongoDB Atlas  
 
 ## ⭐ What Makes This Project Stand Out
 
