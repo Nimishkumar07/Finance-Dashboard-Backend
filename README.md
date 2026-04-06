@@ -217,7 +217,7 @@ To explore all endpoints interactively, visit the Swagger UI:
 👉 https://finance-dashboard-backend-mgv1.onrender.com/api-docs
 
 Note: Most endpoints require authentication using a JWT token in the Authorization header:
-Authorization: Bearer <token>
+`Authorization: Bearer <token>`
 
 Below is a high-level overview of the available endpoints:
 
