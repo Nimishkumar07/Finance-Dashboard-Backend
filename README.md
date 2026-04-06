@@ -359,11 +359,6 @@ Tests cover:
 
 ## 🌐 Deployment (Render)
 
-### Option 1: One-Click Deploy
-Use the included `render.yaml` blueprint for automatic deployment.
-
-### Option 2: Manual Setup
-
 1. Create a new **Web Service** on [Render](https://render.com)
 2. Connect your GitHub repository
 3. Set environment variables:
